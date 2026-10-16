@@ -26,34 +26,35 @@ def Dfuncion_exponencial(x):
 #Implementacion Metodos de busqueda raices
 
 #Metodo de biceccion
-def bisecccion(f , a , b , tol , max_iter):
+def bisecccion(f , intervaloA , intervaloB , tol , max_iter ):
 
-    if f(a) * f(b) >= 0:
+    if f(intervaloA) * f(intervaloB) >= 0:
         return None, "Error: El intervalo no cumple con el teorema de Bolzano. (f(a) * f(b) >= 0)."
 
     for i in range(max_iter):
-        c = (a + b) / 2
+        c = (intervaloA + intervaloB) / 2
         # Con abs obtenemos el valor absolutio del resultado de evaluar el punto medio "c" en la funcion
-        if abs(f(c)) < tol or (b - a) / 2 < tol:
+        if abs(f(c)) < tol or (intervaloB - intervaloA) / 2 < tol:
             return c, i + 1
-        if f(a) * f(c) < 0:
-            b = c
+        if f(intervaloA) * f(c) < 0:
+            intervaloB = c
         else:
-            a = c
+            intervaloA = c
     return c, max_iter
 
-def falsa_posicion(f, a, b, tol, max_iter):
-    if f(a) * f(b) >= 0:
+def falsa_posicion(f , intervaloA , intervaloB , tol , max_iter):
+
+    if f(intervaloA) * f(intervaloB) >= 0:
         return None, "Error: El intervalo no cumple con el teorema de Bolzano. (f(a)*f(b) >= 0)."
 
     for i in range(max_iter):
-        c = (a+b) / 2
-        if abs(f(c)) < tol or (b - a) / 2 < tol:
+        c = (intervaloA+intervaloB) / 2
+        if abs(f(c)) < tol or (intervaloB - intervaloA) / 2 < tol:
             return c, i + 1
-        if f(a) * f(c) < 0:
-            b = c
+        if f(intervaloA) * f(c) < 0:
+            intervaloB = c
         else:
-            a = c
+            intervaloA = c
     return c, max_iter
 
 
@@ -72,8 +73,9 @@ if __name__ == "__main__":
     print("\nMetodo de la biseccion con la funcion polinomica (raiz simple) ")
     raiz_biseccion, iteracion_biseccion = bisecccion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
 
-    print(f"Los resultado de la con la primera funcion son -> Raíz: {raiz_biseccion:.6f} | Iteraciones: {iteracion_biseccion}")
-    
+    print(f"\nLos resultado de la con la primera funcion son -> Raíz: {raiz_biseccion:.6f} | Iteraciones: {iteracion_biseccion}")
+
+
 
 
 
