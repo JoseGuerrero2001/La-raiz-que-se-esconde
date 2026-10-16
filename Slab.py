@@ -22,9 +22,28 @@ def Dfuncion_exponencial(x):
     return -math.exp(-x) - 1
 
 
+#Implementacion Metodos de busqueda raices
+
+def bisecccion(f , a , b , tol , max_iter):
+    pass
+
+
 if __name__ == "__main__":
     print("=== PRUEBA DE MÉTODOS NUMÉRICOS CON ELEMENTOS NATIVOS ===\n")
 
     #Definicion de tolerancia
     TOLERANCIA = 1e-6
+
+    print("\nLa tolerancia por defecto sera 1e-6")
+
+    ITERACIONES: 100
+    ITERACIONES = int(input("\nIngrese num de iteraciones personalizada (opcional, por defecto sera 100) "))
+
+    ExA = 1.0
+    ExB = 2.0
+    ExA = float(input("\nIngrese num de extremo A personalizado (por defecto 1)"))
+    ExB = float(input("\nIngrese num de extremo B personalizado (por defecto 2)"))
+
+
+
 
