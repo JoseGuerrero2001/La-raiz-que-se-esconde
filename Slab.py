@@ -177,3 +177,4 @@ if __name__ == "__main__":
 
     print(f"\nLos resultado de Newton-Raphson con la funcion polinomica (raiz simple) son -> Raíz: {raiz_newton_raphson:.6f} | Iteraciones: {iteracion_newton_raphson}")
 
+    #probando
