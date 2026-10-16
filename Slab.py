@@ -57,7 +57,33 @@ def falsa_posicion(f , intervaloA , intervaloB , tol , max_iter):
             intervaloA = c
     return c, max_iter
 
+def secante(f, x0, x1, tol, max_iter):
+    for i in range(max_iter):
+        fx0, fx1 = f(x0), f(x1)
+        if fx1 - fx0 == 0:
+            return None, "Error: Division por cero en el metodo de la sec."
+        x2 = x1 - fx1 * (x1 - x0) / (fx1 - fx0)
+        if abs(x2 - x1) < tol or abs(f(x2)) < tol:
+            return x2, i + 1
+        x0, x1 = x1, x2
+    return x1, max_iter
 
+def newton_raphson(f, df, x0, tol, max_iter):
+    x = x0
+    for i in range(max_iter):
+        fx = f(x)
+        if abs(fx) < tol:
+            return x, i + 1
+
+        dfx = df(x)
+        if dfx == 0:
+            return None, "Error: Derivada = a cero."
+
+        x_nuevo = x - (fx / dfx)
+        if abs(x_nuevo - x) < tol:
+            return x_nuevo, i + 1
+        x = x_nuevo
+    return x, max_iter
 
 
 if __name__ == "__main__":
