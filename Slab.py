@@ -54,7 +54,19 @@ def bisecccion(f , a , b , tol , max_iter):
             a = c
     return c, max_iter
 
+def falsa_posicion(f, a, b, tol, max_iter):
+    if f(a) * f(b) >= 0:
+        return None, "Error: El intervalo no cumple con el teorema de Bolzano. (f(a)*f(b) >= 0)."
 
+    for i in range(max_iter):
+        c = (a+b) / 2
+        if abs(f(c)) < tol or (b - a) / 2 < tol:
+            return c, i + 1
+        if f(a) * f(c) < 0:
+            b = c
+        else:
+            a = c
+    return c, max_iter
 
 
 
