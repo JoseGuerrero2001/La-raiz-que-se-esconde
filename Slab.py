@@ -4,18 +4,6 @@
 # Importamos modulo estandar "math"
 import math
 
-#funcion de valores personalizado
-def entrada(la_entrada, default):
-    if la_entrada == "":
-        valor = default
-    else:
-        valor = int(la_entrada)
-    return valor
-
-
-
-
-
 
 #Funciones q podemos probar :
 
@@ -72,32 +60,20 @@ def falsa_posicion(f, a, b, tol, max_iter):
 
 
 if __name__ == "__main__":
-    print("=== PRUEBA DE MÉTODOS NUMÉRICOS CON ELEMENTOS NATIVOS ===\n")
+    print("\n=== PRUEBA DE MÉTODOS NUMÉRICOS CON ELEMENTOS NATIVOS ===")
 
     #Definicion de tolerancia
     TOLERANCIA = 1e-6
 
     print("\nLa tolerancia por defecto sera 1e-6")
 
-    default_iteraciones = 100
-    entrada_iteraciones = input("\nIngrese num de iteraciones personalizada (opcional, por defecto sera 100) ")
+    iteraciones = 100
 
-    valor_interaciones = entrada(entrada_iteraciones, default_iteraciones)
+    print("\nMetodo de la biseccion con la funcion polinomica (raiz simple) ")
+    raiz_biseccion, iteracion_biseccion = bisecccion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
 
-    default_ExtremoA = 1.0
-    default_ExtremoB = 2.0
-    entrada_ExtremoA = input("\nIngrese num de extremo A personalizado (por defecto 1)")
-    entrada_ExtremoB = input("\nIngrese num de extremo B personalizado (por defecto 2)")
-
-    valor_ExtremoA = entrada(entrada_ExtremoA , default_ExtremoA )
-    valor_ExtremoB = entrada(entrada_ExtremoB , default_ExtremoB )
-
-
-
-
- 
-
-    raiz_biseccion, iteracion_biseccion = bisecccion(funcion_polinomica , valor_ExtremoA , valor_ExtremoB , valor_interaciones)
+    print(f"Los resultado de la con la primera funcion son -> Raíz: {raiz_biseccion:.6f} | Iteraciones: {iteracion_biseccion}")
+    
 
 
 
