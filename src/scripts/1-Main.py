@@ -28,6 +28,11 @@ from newton_raphson_modificado import newton_raphson_modificado
 
 
 
+
+
+
+
+
 if __name__ == "__main__":
     print("\n=== PRUEBA DE MÉTODOS NUMÉRICOS CON ELEMENTOS NATIVOS ===")
 
@@ -43,7 +48,7 @@ if __name__ == "__main__":
     print("\nFuncion polinomica (raiz simple) ")
 
     print("\nMetodo de la biseccion con la funcion polinomica (raiz simple) ")
-    lista_raiz_biseccion, lista_iteracion_biseccion = bisecccion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
+    lista_raiz_biseccion, lista_iteracion_biseccion , lista_Fx_biseccion = bisecccion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
 
     DIR_ACTUAL = Path(__file__).resolve().parent
     DIR_PADRE = DIR_ACTUAL.parent
@@ -51,7 +56,21 @@ if __name__ == "__main__":
     CARPETA_DESTINO.mkdir(parents=True, exist_ok=True)
     RUTA_CSV = CARPETA_DESTINO / "1-1funcion_poli_raiz_simple_biseccion.csv"
 
-    
+    #Guardar los resultados en un archivo CSV
+    with open(RUTA_CSV, mode='w', newline='', encoding='utf-8') as archivo:
+        escritor = csv.writer(archivo)
+        # Escribimos los encabezados
+        escritor.writerow(["X", "F(x)", "Iteraciones"])
+
+        #escribimos las filas combinando las listas
+        for x, fx, iteracion in zip(lista_raiz_biseccion, lista_Fx_biseccion, lista_iteracion_biseccion):
+            escritor.writerow([x, fx, iteracion])
+
+    print(f"\nArchivo guardado en : {RUTA_CSV}")
+
+
+
+
 
     #print(f"\nLista raices biseccion: {lista_raiz_biseccion}")
     #print(f"\nLista iteraciones biseccion: {lista_iteracion_biseccion}")

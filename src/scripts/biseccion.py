@@ -22,9 +22,9 @@ def bisecccion(f , intervaloA , intervaloB , tol , max_iter ):
         # Con abs obtenemos el valor absolutio del resultado de evaluar el punto medio "c" en la funcion
         if abs(f(c)) < tol or (intervaloB - intervaloA) / 2 < tol:
             
-            return lista_raices, lista_iteraciones
+            return lista_raices, lista_iteraciones , lista_Fx
         if f(intervaloA) * f(c) < 0:
             intervaloB = c
         else:
             intervaloA = c
-    return lista_raices, lista_iteraciones
+    return lista_raices, lista_iteraciones , lista_Fx
