@@ -62,33 +62,24 @@ if __name__ == "__main__":
     print("\nLa tolerancia por defecto sera 1e-6")
 
     iteraciones = 100
-
-
-    print("\n===============================================================================================================================================")
-    print("\nFuncion polinomica (raiz simple) ")
+    """
+    print("\nFUNCION POLINOMICA (RAIZ SIMPLE)")
 
     print("\nMetodo de la biseccion con la funcion polinomica (raiz simple) ")
     lista_raiz_biseccion, lista_iteracion_biseccion , lista_Fx_biseccion = bisecccion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
 
     funcion_archivo_csv(lista_raiz_biseccion, lista_Fx_biseccion, lista_iteracion_biseccion, "1-1funcion_poli_raiz_simple_biseccion.csv")
-
-
-
-
-
-    #print(f"\nLista raices biseccion: {lista_raiz_biseccion}")
-    #print(f"\nLista iteraciones biseccion: {lista_iteracion_biseccion}")
-
-    #print(f"\nLos resultado de biseccion con la funcion polinomica (raiz simple) son -> Raíz: {lista_raiz_biseccion[-1]} | Iteraciones: {lista_iteracion_biseccion[-1]}")
-
     """
 
+
+
+
     print("\nMetodo de la falsa posicion con la funcion polinomica (raiz simple) ")
-    raiz_falsa_posicion, iteracion_falsa_posicion = falsa_posicion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
+    lista_raiz_falsa_posicion, lista_iteracion_falsa_posicion , lista_Fx_falsa_posicion = falsa_posicion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
 
-    print(f"\nLos resultado de la falsa posicion con la funcion polinomica (raiz simple) son -> Raíz: {raiz_falsa_posicion:.6f} | Iteraciones: {iteracion_falsa_posicion}")
+    funcion_archivo_csv(lista_raiz_falsa_posicion, lista_Fx_falsa_posicion, lista_iteracion_falsa_posicion, "1-2funcion_poli_raiz_simple_falsa_posicion.csv")
 
-
+    """
 
     print("\nMetodo de punto fijo con la funcion polinomica (raiz simple) ")
     print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 ")
