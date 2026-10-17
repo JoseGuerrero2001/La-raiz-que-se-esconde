@@ -75,9 +75,7 @@ if __name__ == "__main__":
 
     funcion_archivo_csv(lista_raiz_falsa_posicion, lista_Fx_falsa_posicion, lista_iteracion_falsa_posicion, "1-2funcion_poli_raiz_simple_falsa_posicion.csv")
 
-    """
-
-
+    
 
     print("\nMetodo de punto fijo con la funcion polinomica (raiz simple) ")
     print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 ")
@@ -86,12 +84,14 @@ if __name__ == "__main__":
 
     funcion_archivo_csv(lista_raiz_punto_fijo, lista_Fx_punto_fijo, lista_iteracion_punto_fijo, "1-3funcion_poli_raiz_simple_punto_fijo.csv")
 
-    """
     print("\nMetodo de la secante con la funcion polinomica (raiz simple) ")
     print("\nComo se utiliza dos puntos de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 y (el mayor numero del intervalo) x1 = 2 ")
-    raiz_secante, iteracion_secante = secante(funcion_polinomica , x0 = 1 , x1 = 2 , tol = TOLERANCIA , max_iter = iteraciones)
+    lista_raiz_secante, lista_iteracion_secante, lista_Fx_secante = secante(funcion_polinomica , x0 = 1 , x1 = 2 , tol = TOLERANCIA , max_iter = iteraciones)
 
-    print(f"\nLos resultado de la secante con la funcion polinomica (raiz simple) son -> Raíz: {raiz_secante:.6f} | Iteraciones: {iteracion_secante}")
+    funcion_archivo_csv(lista_raiz_secante, lista_Fx_secante, lista_iteracion_secante, "1-4funcion_poli_raiz_simple_secante.csv")
+
+    """
+
 
     print("\nMetodo de Newton-Raphson con la funcion polinomica (raiz simple) ")
     print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 ")
@@ -99,4 +99,3 @@ if __name__ == "__main__":
 
     print(f"\nLos resultado de Newton-Raphson con la funcion polinomica (raiz simple) son -> Raíz: {raiz_newton_raphson:.6f} | Iteraciones: {iteracion_newton_raphson}")
 
-    """
