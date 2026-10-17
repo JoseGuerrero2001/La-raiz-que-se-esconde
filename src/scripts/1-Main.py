@@ -5,7 +5,8 @@
 import math
 import numpy as np
 import matplotlib.pyplot as plt
-
+import csv
+from pathlib import Path
 
 #Las funciones a probar estan en el archivo funciones.py
 
@@ -25,6 +26,8 @@ from newton_raphson_modificado import newton_raphson_modificado
 
 
 
+
+
 if __name__ == "__main__":
     print("\n=== PRUEBA DE MÉTODOS NUMÉRICOS CON ELEMENTOS NATIVOS ===")
 
@@ -40,9 +43,20 @@ if __name__ == "__main__":
     print("\nFuncion polinomica (raiz simple) ")
 
     print("\nMetodo de la biseccion con la funcion polinomica (raiz simple) ")
-    raiz_biseccion, iteracion_biseccion = bisecccion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
+    lista_raiz_biseccion, lista_iteracion_biseccion = bisecccion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
 
-    print(f"\nLos resultado de biseccion con la funcion polinomica (raiz simple) son -> Raíz: {raiz_biseccion:.6f} | Iteraciones: {iteracion_biseccion}")
+    DIR_ACTUAL = Path(__file__).resolve().parent
+    DIR_PADRE = DIR_ACTUAL.parent
+    CARPETA_DESTINO = DIR_PADRE / "data"
+    CARPETA_DESTINO.mkdir(parents=True, exist_ok=True)
+    RUTA_CSV = CARPETA_DESTINO / "1-1funcion_poli_raiz_simple_biseccion.csv"
+
+    
+
+    #print(f"\nLista raices biseccion: {lista_raiz_biseccion}")
+    #print(f"\nLista iteraciones biseccion: {lista_iteracion_biseccion}")
+
+    #print(f"\nLos resultado de biseccion con la funcion polinomica (raiz simple) son -> Raíz: {lista_raiz_biseccion[-1]} | Iteraciones: {lista_iteracion_biseccion[-1]}")
 
     """
 

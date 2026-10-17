@@ -1,8 +1,9 @@
 
-#Metodo de newton raphson mejorado
+#Metodo de newton raphson modificado
 
-def newton_raphson_mejorado(f, df, ddf, x0, tol, max_iter ):
-    """Método Abierto: Newton-Raphson Mejorado (Ideal para raíces múltiples/dobles)."""
+def newton_raphson_modificado(f, df, ddf, x0, tol, max_iter ):
+    """Método Abierto: Newton-Raphson Modificado (Ideal para raíces múltiples/dobles)."""
+    
     x = x0
     for i in range(max_iter):
         fx = f(x)
