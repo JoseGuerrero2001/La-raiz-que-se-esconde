@@ -12,6 +12,10 @@ def funcion_polinomica(x):
 def Dfuncion_polinomica(x):
     return 3 * (x**2) - 1
 
+#Derivada 2 funcion Polinomica
+def D2funcion_polinomica(x):
+    return 6 * x
+
 #Funcion G Polinomica (Raiz simple)
 def g_polinomica_simple(x):
     return (2 + x)**(1/3)

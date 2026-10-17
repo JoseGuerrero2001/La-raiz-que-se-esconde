@@ -90,12 +90,18 @@ if __name__ == "__main__":
 
     funcion_archivo_csv(lista_raiz_secante, lista_Fx_secante, lista_iteracion_secante, "1-4funcion_poli_raiz_simple_secante.csv")
 
-    """
-
 
     print("\nMetodo de Newton-Raphson con la funcion polinomica (raiz simple) ")
     print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 ")
-    raiz_newton_raphson, iteracion_newton_raphson = newton_raphson(funcion_polinomica , Dfuncion_polinomica , x0 = 1 , tol = TOLERANCIA , max_iter = iteraciones)
+    lista_raices_newton_raphson, lista_iteraciones_newton_raphson, lista_Fx_newton_raphson = newton_raphson(funcion_polinomica , Dfuncion_polinomica , x0 = 1 , tol = TOLERANCIA , max_iter = iteraciones)
 
-    print(f"\nLos resultado de Newton-Raphson con la funcion polinomica (raiz simple) son -> Raíz: {raiz_newton_raphson:.6f} | Iteraciones: {iteracion_newton_raphson}")
+    funcion_archivo_csv(lista_raices_newton_raphson, lista_Fx_newton_raphson, lista_iteraciones_newton_raphson, "1-5funcion_poli_raiz_simple_newton_raphson.csv")
+
+
+    """
+
+
+    print("\nMetodo de Newton-Raphson Modificado con la funcion polinomica (raiz simple) ")
+    print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 ")
+    lista_raices_newton_raphson_modificado, lista_iteraciones_newton_raphson_modificado, lista_Fx_newton_raphson_modificado = newton_raphson_modificado(funcion_polinomica , Dfuncion_polinomica , D2funcion_polinomica , x0 = 1 , tol = TOLERANCIA , max_iter = iteraciones)
 
