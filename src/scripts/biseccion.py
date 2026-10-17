@@ -10,7 +10,8 @@ def bisecccion(f , intervaloA , intervaloB , tol , max_iter ):
 
 
     if f(intervaloA) * f(intervaloB) >= 0:
-        return None, "Error: El intervalo no cumple con el teorema de Bolzano. (f(a) * f(b) >= 0)."
+        print("\nError: El intervalo no cumple con el teorema de Bolzano. (f(a) * f(b) >= 0).")
+        return None, None, None
 
     for i in range(max_iter):
         lista_iteraciones.append(i + 1)

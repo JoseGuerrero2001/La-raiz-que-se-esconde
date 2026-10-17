@@ -24,6 +24,8 @@ def g_polinomica_simple(x):
 def raiz_doble(x):
     return (x - 2)**2
 
+
+
 #Derivada funcion Raiz doble
 def Dfuncion_raiz_doble(x):
     return 2 * (x - 2)

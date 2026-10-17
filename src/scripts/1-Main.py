@@ -89,6 +89,16 @@ def FUNCION_POLINOMICA_RAIZ_SIMPLE():
 
     funcion_archivo_csv(lista_raices_newton_raphson_modificado, lista_Fx_newton_raphson_modificado, lista_iteraciones_newton_raphson_modificado, "1-6funcion_poli_raiz_simple_newton_raphson_modificado.csv")
 
+def FUNCION_POLINOMICA_RAIZ_DOBLE():
+    print("\nMetodo de la biseccion con la funcion polinomica (raiz doble) ")
+    lista_raiz_biseccion, lista_iteracion_biseccion , lista_Fx_biseccion = bisecccion(raiz_doble , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
+
+    print("\nComo no cumple el teroema de Bolzano, no se puede aplicar el metodo de biseccion")
+
+    print("\nMetodo de la falsa posicion con la funcion polinomica (raiz doble) ")
+    lista_raiz_falsa_posicion, lista_iteracion_falsa_posicion , lista_Fx_falsa_posicion = falsa_posicion(raiz_doble , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
+
+    print("\nComo no cumple el teroema de Bolzano, no se puede aplicar el metodo de biseccion")
 
 
 
@@ -107,12 +117,13 @@ if __name__ == "__main__":
 
     #FUNCION_POLINOMICA_RAIZ_SIMPLE()
 
+    print("\nFUNCION POLINOMICA (RAIZ DOBLE)")
 
+    #FUNCION_POLINOMICA_RAIZ_DOBLE()
 
+    print("\nMetodo punto fijo con la funcion polinomica (raiz doble) ")
+    print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 ")
     
-
-
-
 
 
 
