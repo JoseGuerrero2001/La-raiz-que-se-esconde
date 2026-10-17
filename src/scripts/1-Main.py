@@ -1,4 +1,4 @@
-# Trabajo de Computacion numerica 
+# Trabajo de Computacion numerica
 # Autores : Ricardo Yañez Vega, Jose Guerrero
 
 # Importamos modulo estandar "math"
@@ -36,7 +36,7 @@ if __name__ == "__main__":
     iteraciones = 100
 
 
-    print("\n=============================================================================================================================================================================")
+    print("\n===============================================================================================================================================")
     print("\nFuncion polinomica (raiz simple) ")
 
     print("\nMetodo de la biseccion con la funcion polinomica (raiz simple) ")
