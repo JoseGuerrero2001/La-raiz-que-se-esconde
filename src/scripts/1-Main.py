@@ -10,7 +10,8 @@ from pathlib import Path
 
 #Las funciones a probar estan en el archivo funciones.py
 
-from funciones import funcion_polinomica, Dfuncion_polinomica, g_polinomica_simple, raiz_doble, Dfuncion_raiz_doble, funcion_exponencial, Dfuncion_exponencial, f_trigonometrica, df_trigonometrica, f_mixta, df_mixta
+from funciones import funcion_polinomica, Dfuncion_polinomica , D2funcion_polinomica , g_polinomica_simple
+from funciones import raiz_doble, Dfuncion_raiz_doble, funcion_exponencial, Dfuncion_exponencial, f_trigonometrica, df_trigonometrica, f_mixta, df_mixta
 
 
 #Metodos de busqueda raices estan en el archivo
@@ -48,34 +49,18 @@ def funcion_archivo_csv(lista_raices, lista_Fx, lista_iteraciones, nombre_archiv
 
 
 
-
-
-
-
-
-if __name__ == "__main__":
-    print("\n=== PRUEBA DE MÉTODOS NUMÉRICOS CON ELEMENTOS NATIVOS ===")
-
-    #Definicion de tolerancia
-    TOLERANCIA = 1e-6
-
-    print("\nLa tolerancia por defecto sera 1e-6")
-
-    iteraciones = 100
-    """
-    print("\nFUNCION POLINOMICA (RAIZ SIMPLE)")
-
+def FUNCION_POLINOMICA_RAIZ_SIMPLE():
     print("\nMetodo de la biseccion con la funcion polinomica (raiz simple) ")
     lista_raiz_biseccion, lista_iteracion_biseccion , lista_Fx_biseccion = bisecccion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
 
     funcion_archivo_csv(lista_raiz_biseccion, lista_Fx_biseccion, lista_iteracion_biseccion, "1-1funcion_poli_raiz_simple_biseccion.csv")
-    
+
     print("\nMetodo de la falsa posicion con la funcion polinomica (raiz simple) ")
     lista_raiz_falsa_posicion, lista_iteracion_falsa_posicion , lista_Fx_falsa_posicion = falsa_posicion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
 
     funcion_archivo_csv(lista_raiz_falsa_posicion, lista_Fx_falsa_posicion, lista_iteracion_falsa_posicion, "1-2funcion_poli_raiz_simple_falsa_posicion.csv")
 
-    
+
 
     print("\nMetodo de punto fijo con la funcion polinomica (raiz simple) ")
     print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 ")
@@ -98,10 +83,37 @@ if __name__ == "__main__":
     funcion_archivo_csv(lista_raices_newton_raphson, lista_Fx_newton_raphson, lista_iteraciones_newton_raphson, "1-5funcion_poli_raiz_simple_newton_raphson.csv")
 
 
-    """
-
-
     print("\nMetodo de Newton-Raphson Modificado con la funcion polinomica (raiz simple) ")
     print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 ")
     lista_raices_newton_raphson_modificado, lista_iteraciones_newton_raphson_modificado, lista_Fx_newton_raphson_modificado = newton_raphson_modificado(funcion_polinomica , Dfuncion_polinomica , D2funcion_polinomica , x0 = 1 , tol = TOLERANCIA , max_iter = iteraciones)
 
+    funcion_archivo_csv(lista_raices_newton_raphson_modificado, lista_Fx_newton_raphson_modificado, lista_iteraciones_newton_raphson_modificado, "1-6funcion_poli_raiz_simple_newton_raphson_modificado.csv")
+
+
+
+
+if __name__ == "__main__":
+
+    print("\n=== PRUEBA DE MÉTODOS NUMÉRICOS CON ELEMENTOS NATIVOS ===")
+
+    #Definicion de tolerancia
+    TOLERANCIA = 1e-6
+
+    print("\nLa tolerancia por defecto sera 1e-6")
+
+    iteraciones = 100
+
+    print("\nFUNCION POLINOMICA (RAIZ SIMPLE)")
+
+    #FUNCION_POLINOMICA_RAIZ_SIMPLE()
+
+
+
+    
+
+
+
+
+
+
+    None

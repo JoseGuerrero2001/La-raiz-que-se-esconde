@@ -25,6 +25,6 @@ def newton_raphson(f, df, x0, tol, max_iter):
 
         x_nuevo = x - (fx / dfx)
         if abs(x_nuevo - x) < tol:
-            return x_nuevo, i + 1
+            return lista_raices, lista_iteraciones , lista_Fx
         x = x_nuevo
-    return x, max_iter
+    return lista_raices, lista_iteraciones , lista_Fx
