@@ -69,11 +69,7 @@ if __name__ == "__main__":
     lista_raiz_biseccion, lista_iteracion_biseccion , lista_Fx_biseccion = bisecccion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
 
     funcion_archivo_csv(lista_raiz_biseccion, lista_Fx_biseccion, lista_iteracion_biseccion, "1-1funcion_poli_raiz_simple_biseccion.csv")
-    """
-
-
-
-
+    
     print("\nMetodo de la falsa posicion con la funcion polinomica (raiz simple) ")
     lista_raiz_falsa_posicion, lista_iteracion_falsa_posicion , lista_Fx_falsa_posicion = falsa_posicion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
 
@@ -81,14 +77,16 @@ if __name__ == "__main__":
 
     """
 
+
+
     print("\nMetodo de punto fijo con la funcion polinomica (raiz simple) ")
     print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 ")
     print("\nLa funcion g(x) utilizada sera g(x) = (2 + x)^(1/3)")
-    raiz_punto_fijo, iteracion_punto_fijo = punto_fijo(g_polinomica_simple , x0 = 1 , tol = TOLERANCIA , max_iter = iteraciones)
+    lista_raiz_punto_fijo, lista_iteracion_punto_fijo, lista_Fx_punto_fijo = punto_fijo(g_polinomica_simple , x0 = 1 , tol = TOLERANCIA , max_iter = iteraciones)
 
-    print(f"\nLos resultado de punto fijo con la funcion polinomica (raiz simple) son -> Raíz: {raiz_punto_fijo:.6f} | Iteraciones: {iteracion_punto_fijo}")
+    funcion_archivo_csv(lista_raiz_punto_fijo, lista_Fx_punto_fijo, lista_iteracion_punto_fijo, "1-3funcion_poli_raiz_simple_punto_fijo.csv")
 
-
+    """
     print("\nMetodo de la secante con la funcion polinomica (raiz simple) ")
     print("\nComo se utiliza dos puntos de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 y (el mayor numero del intervalo) x1 = 2 ")
     raiz_secante, iteracion_secante = secante(funcion_polinomica , x0 = 1 , x1 = 2 , tol = TOLERANCIA , max_iter = iteraciones)
