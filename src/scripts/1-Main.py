@@ -145,9 +145,7 @@ def FUNCION_POLINOMICA_RAIZ_SIMPLE():
     print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 ")
     lista_raices_newton_raphson_modificado, lista_iteraciones_newton_raphson_modificado, lista_Fx_newton_raphson_modificado = newton_raphson_modificado(funcion_polinomica , Dfuncion_polinomica , D2funcion_polinomica , x0 = 1 , tol = TOLERANCIA , max_iter = iteraciones)
     #print(f"\nLista raiz {lista_raices_newton_raphson_modificado} \nLista iteracion {lista_iteraciones_newton_raphson_modificado} \nLista F(x) {lista_Fx_newton_raphson_modificado}")
-    if lista_raices_newton_raphson_modificado is None:
-        print("\nNo hay datos a entregar")
-        return 0
+
     #funcion_archivo_csv(lista_raices_newton_raphson_modificado, lista_Fx_newton_raphson_modificado, lista_iteraciones_newton_raphson_modificado, "1-6funcion_poli_raiz_simple_newton_raphson_modificado.csv")
 
     lista_completa = [lista_raiz_biseccion, lista_raiz_falsa_posicion, lista_raiz_punto_fijo, lista_raiz_secante,lista_raices_newton_raphson,lista_raices_newton_raphson_modificado]
@@ -243,9 +241,7 @@ def FUNCION_EXPONENCIAL():
     print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 0 ")
     lista_raices_newton_raphson, lista_iteraciones_newton_raphson, lista_Fx_newton_raphson = newton_raphson(funcion_exponencial , Dfuncion_exponencial , x0 = 0 , tol = TOLERANCIA , max_iter = iteraciones)
     print(f"\nLista raiz {lista_raices_newton_raphson} \nLista iteracion {lista_iteraciones_newton_raphson} \nLista F(x) {lista_Fx_newton_raphson}")
-    if   lista_raices_newton_raphson is None :
-        print("\nNo hay datos a entregar")
-        return 0
+
     funcion_archivo_csv(lista_raices_newton_raphson, lista_Fx_newton_raphson, lista_iteraciones_newton_raphson, "3-5funcion_exponencial_newton_raphson.csv")
 
 
@@ -255,6 +251,12 @@ def FUNCION_EXPONENCIAL():
     print(f"\nLista raiz {lista_raices_newton_raphson_modificado} \nLista iteracion {lista_iteraciones_newton_raphson_modificado} \nLista F(x) {lista_Fx_newton_raphson_modificado}")
 
     funcion_archivo_csv(lista_raices_newton_raphson_modificado, lista_Fx_newton_raphson_modificado, lista_iteraciones_newton_raphson_modificado, "3-6funcion_exponencial_newton_raphson_modificado.csv")
+
+    lista_completa = [lista_raiz_biseccion, lista_raiz_falsa_posicion, lista_raiz_punto_fijo, lista_raiz_secante,lista_raices_newton_raphson,lista_raices_newton_raphson_modificado]
+
+    return lista_completa
+
+
 
 def FUNCION_TRIGONOMETRICA():
 
@@ -306,6 +308,13 @@ def FUNCION_TRIGONOMETRICA():
 
     funcion_archivo_csv(lista_raices_newton_raphson_modificado, lista_Fx_newton_raphson_modificado, lista_iteraciones_newton_raphson_modificado, "4-6funcion_trigonometrica_newton_raphson_modificado.csv")
 
+    lista_completa = [lista_raiz_biseccion, lista_raiz_falsa_posicion, lista_raiz_punto_fijo, lista_raiz_secante,lista_raices_newton_raphson,lista_raices_newton_raphson_modificado]
+
+    return lista_completa
+
+
+
+
 def FUNCION_MIXTA():
 
     print("\nMetodo de biseccion con la funcion mixta ")
@@ -351,13 +360,13 @@ def FUNCION_MIXTA():
     print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 0.1 ")
     lista_raices_newton_raphson_modificado, lista_iteraciones_newton_raphson_modificado, lista_Fx_newton_raphson_modificado = newton_raphson_modificado(f_mixta , df_mixta , d2f_mixta , x0 = 0.1 , tol = TOLERANCIA , max_iter = iteraciones)
     print(f"\nLista raiz {lista_raices_newton_raphson_modificado} \nLista iteracion {lista_iteraciones_newton_raphson_modificado} \nLista F(x) {lista_Fx_newton_raphson_modificado}")
-    
-    if lista_raices_newton_raphson_modificado is None:
-        print("\nNo hay datos a entregar")
-        return 0
+
+
     funcion_archivo_csv(lista_raices_newton_raphson_modificado , lista_Fx_newton_raphson_modificado , lista_iteraciones_newton_raphson_modificado , "5-6funcion_mixta_newton_raphson_modificado.csv")
 
+    lista_completa = [lista_raiz_biseccion, lista_raiz_falsa_posicion, lista_raiz_punto_fijo, lista_raiz_secante,lista_raices_newton_raphson,lista_raices_newton_raphson_modificado]
 
+    return lista_completa
 
 
 
@@ -392,18 +401,23 @@ if __name__ == "__main__":
 
     print("\nFUNCION EXPONENCIAL ")
 
-    lista3 = FUNCION_EXPONENCIAL()
-    titulo3 = "Grafico de Funcion exponencial"
-    GRAFICAR(lista3,titulo3, "Funcion_exponencial.png")
+    #lista3 = FUNCION_EXPONENCIAL()
+    #titulo3 = "Grafico de Funcion exponencial"
+    #GRAFICAR(lista3,titulo3, "Funcion_exponencial.png")
 
 
     print("\nFUNCION TRIGONOMETRICA ")
 
-    #FUNCION_TRIGONOMETRICA()
+    #lista4 = FUNCION_TRIGONOMETRICA()
+    #titulo4 = "Grafico de Funcion trigonometrica"
+    #GRAFICAR(lista4,titulo4, "Funcion_trigonometrica.png")
 
     print("\nFUNCION MIXTA ")
 
-    #FUNCION_MIXTA()
+    lista5 = FUNCION_MIXTA()
+    titulo5 = "Grafico de Funcion mixta"
+    GRAFICAR(lista5,titulo5, "Funcion_mixta.png")
+
 
 
 

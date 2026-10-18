@@ -7,18 +7,16 @@ def newton_raphson_modificado(f, df, ddf, x0, tol, max_iter ):
     lista_raices = []
     lista_iteraciones = []
     lista_Fx = []
+    listavacia = [0]
 
     x = x0
     for i in range(max_iter):
 
 
-        if x < 0:
-            print(f"Error: El valor de x ({x}) salió del dominio válido (x < 0).")
-            return None, None, None
 
         if x < 0:
             print(f"Error: El valor de x ({x}) salió del dominio válido (x < 0).")
-            return None, None, None
+            return listavacia ,listavacia ,listavacia 
         #print(f"\nIteracion {i + 1}: x = {x}, f(x) = {f(x)}")
 
         fx = f(x)
@@ -38,7 +36,8 @@ def newton_raphson_modificado(f, df, ddf, x0, tol, max_iter ):
 
         denominador = (dfx ** 2) - (fx * ddfx)
         if denominador == 0:
-            return None, "Error: Denominador cero en Newton mejorado."
+            print("Error: Denominador cero en Newton mejorado.")
+            return listavacia ,listavacia ,listavacia 
 
         x_nuevo = x - (fx * dfx) / denominador
 
