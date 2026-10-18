@@ -51,6 +51,29 @@ def funcion_archivo_csv(lista_raices, lista_Fx, lista_iteraciones, nombre_archiv
 
     pass
 
+
+def GRAFICAR(lista_completa, titulo):
+
+
+    #Creamos el lienzo del gráfico
+    plt.figure(figsize=(7, 5))
+
+    #Dibujamos las funciones
+    plt.plot(lista_completa[0][0], marker='o', color='purple', label='Metodo Biseccion')
+
+    #Añadimos detalles a la tabla
+    plt.title(titulo)
+    plt.xlabel("X")
+    plt.ylabel("F(x)")
+    plt.grid(True)
+    plt.legend()
+
+    plt.show()
+    
+    pass
+
+
+
 def FUNCION_POLINOMICA_RAIZ_SIMPLE():
 
     lista_completa = []
@@ -60,7 +83,7 @@ def FUNCION_POLINOMICA_RAIZ_SIMPLE():
     lista_raiz_biseccion, lista_iteracion_biseccion , lista_Fx_biseccion = bisecccion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
     lista1 = [lista_raiz_biseccion, lista_Fx_biseccion]
     lista_completa = [lista1]
-    #print(f"\nLista raiz {lista_raiz_biseccion} \nLista iteracion {lista_iteracion_biseccion} \nLista F(x) {lista_Fx_biseccion}")
+    print(f"\nLista raiz {lista_raiz_biseccion} \nLista iteracion {lista_iteracion_biseccion} \nLista F(x) {lista_Fx_biseccion}")
     #funcion_archivo_csv(lista_raiz_biseccion, lista_Fx_biseccion, lista_iteracion_biseccion, "1-1funcion_poli_raiz_simple_biseccion.csv")
 
 
@@ -289,7 +312,8 @@ if __name__ == "__main__":
     print("\nFUNCION POLINOMICA (RAIZ SIMPLE)")
 
     lista1 = FUNCION_POLINOMICA_RAIZ_SIMPLE()
-
+    titulo1 = "Grafico de Funcion polinomica raiz simple"
+    GRAFICAR(lista1,titulo1)
 
     print("\nFUNCION POLINOMICA (RAIZ DOBLE)")
 

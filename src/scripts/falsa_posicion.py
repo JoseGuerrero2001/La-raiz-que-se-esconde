@@ -1,22 +1,22 @@
 
 # Método de Falsa Posición (con historial en listas)
-def falsa_posicion(f, a, b, tol=1e-6, max_iter=100):
+def falsa_posicion(f , intervaloA , intervaloB , tol , max_iter ):
     """Método Cerrado: Falsa Posición (Regula Falsi)."""
     
     lista_raices = []
     lista_iteraciones = []
     lista_Fx = []
 
-    if f(a) * f(b) >= 0:
+    if f(intervaloA) * f(intervaloB) >= 0:
         print("\nError: El intervalo no cumple con el teorema de Bolzano.")
         return None, None, None
     
-    c_ant = a
+    c_ant = intervaloA
     for i in range(max_iter):
-        fa, fb = f(a), f(b)
+        fa, fb = f(intervaloA), f(intervaloB)
         
 
-        c = b - (fb * (a - b)) / (fa - fb)
+        c = intervaloB - (fb * (intervaloA - intervaloB)) / (fa - fb)
         
         lista_iteraciones.append(i + 1)
         lista_raices.append(round(c, 6))
@@ -26,10 +26,10 @@ def falsa_posicion(f, a, b, tol=1e-6, max_iter=100):
         if abs(f(c)) < tol or abs(c - c_ant) < tol:
             return lista_raices, lista_iteraciones, lista_Fx
         
-        if f(a) * f(c) < 0:
-            b = c
+        if f(intervaloA) * f(c) < 0:
+            intervaloB = c
         else:
-            a = c
+            intervaloA = c
         c_ant = c
         
     return lista_raices, lista_iteraciones, lista_Fx
