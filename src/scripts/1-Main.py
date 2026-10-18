@@ -52,14 +52,30 @@ def funcion_archivo_csv(lista_raices, lista_Fx, lista_iteraciones, nombre_archiv
     pass
 
 
-def GRAFICAR(lista_completa, titulo):
+def GRAFICAR(lista_completa, titulo, nombre_archivo_png="grafico.png"):
 
 
-    #Creamos el lienzo del gráfico
-    plt.figure(figsize=(7, 5))
+    #Definimos la ruta exterior usando pathlib (igual que en tu CSV)
+    DIR_ACTUAL = Path(__file__).resolve().parent
+    DIR_PADRE = DIR_ACTUAL.parent
+
+    CARPETA_DESTINO = DIR_PADRE / "assets"
+    CARPETA_DESTINO.mkdir(parents=True, exist_ok=True)
+    
+    RUTA_IMAGEN = CARPETA_DESTINO / nombre_archivo_png
+
+
 
     #Dibujamos las funciones
-    plt.plot(lista_completa[0][0], marker='o', color='purple', label='Metodo Biseccion')
+    plt.plot(lista_completa[0] , color= "r" , label='Biseccion')
+    plt.plot(lista_completa[1] , color = 'g' , label= 'Falsa posicion')
+    plt.plot(lista_completa[2] , color = 'b' , label= 'Punto Fijo')
+    plt.plot(lista_completa[3] , color = 'c' , label= 'Secante')
+    plt.plot(lista_completa[4] , color = 'm' , label= 'Newton Raphson')
+    plt.plot(lista_completa[5] , color = 'y' , label= 'Newton Raphson Mejorado')
+
+
+
 
     #Añadimos detalles a la tabla
     plt.title(titulo)
@@ -68,22 +84,25 @@ def GRAFICAR(lista_completa, titulo):
     plt.grid(True)
     plt.legend()
 
-    plt.show()
-    
+
+    plt.savefig(RUTA_IMAGEN, dpi=300, bbox_inches='tight')
+    print(f"\nGráfico guardado en: {RUTA_IMAGEN}")
+
+    #plt.show()
+
     pass
 
 
 
 def FUNCION_POLINOMICA_RAIZ_SIMPLE():
 
-    lista_completa = []
 
-    lista1 = []
+
+
     print("\nMetodo de la biseccion con la funcion polinomica (raiz simple) ")
     lista_raiz_biseccion, lista_iteracion_biseccion , lista_Fx_biseccion = bisecccion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
-    lista1 = [lista_raiz_biseccion, lista_Fx_biseccion]
-    lista_completa = [lista1]
-    print(f"\nLista raiz {lista_raiz_biseccion} \nLista iteracion {lista_iteracion_biseccion} \nLista F(x) {lista_Fx_biseccion}")
+
+    #print(f"\nLista raiz {lista_raiz_biseccion} \nLista iteracion {lista_iteracion_biseccion} \nLista F(x) {lista_Fx_biseccion}")
     #funcion_archivo_csv(lista_raiz_biseccion, lista_Fx_biseccion, lista_iteracion_biseccion, "1-1funcion_poli_raiz_simple_biseccion.csv")
 
 
@@ -123,6 +142,8 @@ def FUNCION_POLINOMICA_RAIZ_SIMPLE():
     #print(f"\nLista raiz {lista_raices_newton_raphson_modificado} \nLista iteracion {lista_iteraciones_newton_raphson_modificado} \nLista F(x) {lista_Fx_newton_raphson_modificado}")
     #funcion_archivo_csv(lista_raices_newton_raphson_modificado, lista_Fx_newton_raphson_modificado, lista_iteraciones_newton_raphson_modificado, "1-6funcion_poli_raiz_simple_newton_raphson_modificado.csv")
 
+    lista_completa = [lista_raiz_biseccion, lista_raiz_falsa_posicion, lista_raiz_punto_fijo, lista_raiz_secante,lista_raices_newton_raphson,lista_raices_newton_raphson_modificado]
+
     return lista_completa
 
 
@@ -130,12 +151,12 @@ def FUNCION_POLINOMICA_RAIZ_DOBLE():
     print("\nMetodo de la biseccion con la funcion polinomica (raiz doble) ")
     lista_raiz_biseccion, lista_iteracion_biseccion , lista_Fx_biseccion = bisecccion(raiz_doble , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
     print(f"\nLista raiz {lista_raiz_biseccion} \nLista iteracion {lista_iteracion_biseccion} \nLista F(x) {lista_Fx_biseccion}")
-    #print("\nComo no cumple el teroema de Bolzano, no se puede aplicar el metodo de biseccion")
+    print("\nComo no cumple el teroema de Bolzano, no se puede aplicar el metodo de biseccion")
 
     print("\nMetodo de la falsa posicion con la funcion polinomica (raiz doble) ")
     lista_raiz_falsa_posicion, lista_iteracion_falsa_posicion , lista_Fx_falsa_posicion = falsa_posicion(raiz_doble , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
     print(f"\nLista raiz {lista_raiz_falsa_posicion} \nLista iteracion {lista_iteracion_falsa_posicion} \nLista F(x) {lista_Fx_falsa_posicion}")
-    #print("\nComo no cumple el teroema de Bolzano, no se puede aplicar el metodo de biseccion")
+    print("\nComo no cumple el teroema de Bolzano, no se puede aplicar el metodo de biseccion")
 
 
     print("\nMetodo punto fijo con la funcion polinomica (raiz doble) ")
@@ -253,7 +274,7 @@ def FUNCION_MIXTA():
     print("\nMetodo de biseccion con la funcion mixta ")
     lista_raiz_biseccion, lista_iteracion_biseccion , lista_Fx_biseccion = bisecccion(f_mixta , intervaloA = 0.1 , intervaloB = 1 , tol = TOLERANCIA , max_iter = iteraciones)
     print(f"\nLista raiz {lista_raiz_biseccion} \nLista iteracion {lista_iteracion_biseccion} \nLista F(x) {lista_Fx_biseccion}")
-    funcion_archivo_csv(lista_raiz_biseccion, lista_Fx_biseccion, lista_iteracion_biseccion, "5-1funcion_trigonometrica_biseccion.csv")
+    funcion_archivo_csv(lista_raiz_biseccion, lista_Fx_biseccion, lista_iteracion_biseccion, "5-1funcion_mixta_biseccion.csv")
 
 
     print("\nMetodo de la falsa posicion con la funcion mixta")
@@ -288,6 +309,10 @@ def FUNCION_MIXTA():
     print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 0.1 ")
     lista_raices_newton_raphson_modificado, lista_iteraciones_newton_raphson_modificado, lista_Fx_newton_raphson_modificado = newton_raphson_modificado(f_mixta , df_mixta , d2f_mixta , x0 = 0.1 , tol = TOLERANCIA , max_iter = iteraciones)
     print(f"\nLista raiz {lista_raices_newton_raphson_modificado} \nLista iteracion {lista_iteraciones_newton_raphson_modificado} \nLista F(x) {lista_Fx_newton_raphson_modificado}")
+    
+    if lista_raices_newton_raphson_modificado is None or lista_Fx_newton_raphson_modificado is None or lista_iteraciones_newton_raphson_modificado is None:
+        print("\nNo hay datos a entregar")
+        return
     funcion_archivo_csv(lista_raices_newton_raphson_modificado , lista_Fx_newton_raphson_modificado , lista_iteraciones_newton_raphson_modificado , "5-6funcion_mixta_newton_raphson_modificado.csv")
 
 
@@ -313,7 +338,7 @@ if __name__ == "__main__":
 
     lista1 = FUNCION_POLINOMICA_RAIZ_SIMPLE()
     titulo1 = "Grafico de Funcion polinomica raiz simple"
-    GRAFICAR(lista1,titulo1)
+    GRAFICAR(lista1,titulo1, "Funcion_poli_raiz_simple.png")
 
     print("\nFUNCION POLINOMICA (RAIZ DOBLE)")
 
