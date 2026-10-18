@@ -387,30 +387,30 @@ if __name__ == "__main__":
 
     print("\nFUNCION POLINOMICA (RAIZ SIMPLE)")
 
-    #lista1 = FUNCION_POLINOMICA_RAIZ_SIMPLE()
-    #titulo1 = "Grafico de Funcion polinomica raiz simple"
-    #GRAFICAR(lista1,titulo1, "Funcion_poli_raiz_simple.png")
+    lista1 = FUNCION_POLINOMICA_RAIZ_SIMPLE()
+    titulo1 = "Grafico de Funcion polinomica raiz simple"
+    GRAFICAR(lista1,titulo1, "Funcion_poli_raiz_simple.png")
 
     print("\nFUNCION POLINOMICA (RAIZ DOBLE)")
 
-    #lista2 = FUNCION_POLINOMICA_RAIZ_DOBLE()
-    #titulo2 = "Grafico de Funcion polinomica raiz doble"
-    #GRAFICAR(lista2,titulo2, "Funcion_poli_raiz_doble.png")
+    lista2 = FUNCION_POLINOMICA_RAIZ_DOBLE()
+    titulo2 = "Grafico de Funcion polinomica raiz doble"
+    GRAFICAR(lista2,titulo2, "Funcion_poli_raiz_doble.png")
 
 
 
     print("\nFUNCION EXPONENCIAL ")
 
-    #lista3 = FUNCION_EXPONENCIAL()
-    #titulo3 = "Grafico de Funcion exponencial"
-    #GRAFICAR(lista3,titulo3, "Funcion_exponencial.png")
+    lista3 = FUNCION_EXPONENCIAL()
+    titulo3 = "Grafico de Funcion exponencial"
+    GRAFICAR(lista3,titulo3, "Funcion_exponencial.png")
 
 
     print("\nFUNCION TRIGONOMETRICA ")
 
-    #lista4 = FUNCION_TRIGONOMETRICA()
-    #titulo4 = "Grafico de Funcion trigonometrica"
-    #GRAFICAR(lista4,titulo4, "Funcion_trigonometrica.png")
+    lista4 = FUNCION_TRIGONOMETRICA()
+    titulo4 = "Grafico de Funcion trigonometrica"
+    GRAFICAR(lista4,titulo4, "Funcion_trigonometrica.png")
 
     print("\nFUNCION MIXTA ")
 
