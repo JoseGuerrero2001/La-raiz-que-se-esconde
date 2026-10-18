@@ -49,7 +49,6 @@ def funcion_archivo_csv(lista_raices, lista_Fx, lista_iteraciones, nombre_archiv
 
     print(f"\nArchivo guardado en : {RUTA_CSV}")
 
-def graficar(lista completa):
     pass
 
 def FUNCION_POLINOMICA_RAIZ_SIMPLE():
@@ -291,7 +290,6 @@ if __name__ == "__main__":
 
     lista1 = FUNCION_POLINOMICA_RAIZ_SIMPLE()
 
-    GRAFICAR()
 
     print("\nFUNCION POLINOMICA (RAIZ DOBLE)")
 
