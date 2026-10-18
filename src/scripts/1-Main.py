@@ -49,13 +49,22 @@ def funcion_archivo_csv(lista_raices, lista_Fx, lista_iteraciones, nombre_archiv
 
     print(f"\nArchivo guardado en : {RUTA_CSV}")
 
-
+def graficar(lista completa):
+    pass
 
 def FUNCION_POLINOMICA_RAIZ_SIMPLE():
+
+    lista_completa = []
+
+    lista1 = []
     print("\nMetodo de la biseccion con la funcion polinomica (raiz simple) ")
     lista_raiz_biseccion, lista_iteracion_biseccion , lista_Fx_biseccion = bisecccion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
+    lista1 = [lista_raiz_biseccion, lista_Fx_biseccion]
+    lista_completa = [lista1]
     #print(f"\nLista raiz {lista_raiz_biseccion} \nLista iteracion {lista_iteracion_biseccion} \nLista F(x) {lista_Fx_biseccion}")
     #funcion_archivo_csv(lista_raiz_biseccion, lista_Fx_biseccion, lista_iteracion_biseccion, "1-1funcion_poli_raiz_simple_biseccion.csv")
+
+
 
     print("\nMetodo de la falsa posicion con la funcion polinomica (raiz simple) ")
     lista_raiz_falsa_posicion, lista_iteracion_falsa_posicion , lista_Fx_falsa_posicion = falsa_posicion(funcion_polinomica , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
@@ -92,7 +101,7 @@ def FUNCION_POLINOMICA_RAIZ_SIMPLE():
     #print(f"\nLista raiz {lista_raices_newton_raphson_modificado} \nLista iteracion {lista_iteraciones_newton_raphson_modificado} \nLista F(x) {lista_Fx_newton_raphson_modificado}")
     #funcion_archivo_csv(lista_raices_newton_raphson_modificado, lista_Fx_newton_raphson_modificado, lista_iteraciones_newton_raphson_modificado, "1-6funcion_poli_raiz_simple_newton_raphson_modificado.csv")
 
-    return lista_raiz_biseccion
+    return lista_completa
 
 
 def FUNCION_POLINOMICA_RAIZ_DOBLE():
@@ -282,7 +291,7 @@ if __name__ == "__main__":
 
     lista1 = FUNCION_POLINOMICA_RAIZ_SIMPLE()
 
-    print
+    GRAFICAR()
 
     print("\nFUNCION POLINOMICA (RAIZ DOBLE)")
 
