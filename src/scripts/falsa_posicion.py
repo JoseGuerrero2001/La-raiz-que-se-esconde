@@ -8,8 +8,11 @@ def falsa_posicion(f , intervaloA , intervaloB , tol , max_iter ):
     lista_Fx = []
 
     if f(intervaloA) * f(intervaloB) >= 0:
+        lista_raices = [0]
+        lista_iteraciones = [0]
+        lista_Fx = [0]
         print("\nError: El intervalo no cumple con el teorema de Bolzano.")
-        return None, None, None
+        return lista_raices, lista_iteraciones, lista_Fx
     
     c_ant = intervaloA
     for i in range(max_iter):
