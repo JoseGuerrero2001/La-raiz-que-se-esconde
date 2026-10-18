@@ -64,7 +64,7 @@ def GRAFICAR(lista_completa, titulo, nombre_archivo_png="grafico.png"):
     
     RUTA_IMAGEN = CARPETA_DESTINO / nombre_archivo_png
 
-
+    plt.figure()
 
 
     #Dibujamos las funciones
@@ -89,6 +89,8 @@ def GRAFICAR(lista_completa, titulo, nombre_archivo_png="grafico.png"):
     plt.savefig(RUTA_IMAGEN, dpi=300, bbox_inches='tight')
     print(f"\nGráfico guardado en: {RUTA_IMAGEN}")
 
+
+    plt.close()
     #plt.show()
 
     pass
