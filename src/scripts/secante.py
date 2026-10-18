@@ -19,7 +19,7 @@ def secante(f, x0, x1, tol, max_iter):
         lista_raices.append(round(x2, 6))
         lista_Fx.append(round(f(x2), 6))
 
-        print(f"\nIteracion {i + 1}: x = {x2}, f(x) = {f(x2)}")
+        #print(f"\nIteracion {i + 1}: x = {x2}, f(x) = {f(x2)}")
 
         if abs(x2 - x1) < tol or abs(f(x2)) < tol:
             return lista_raices, lista_iteraciones , lista_Fx

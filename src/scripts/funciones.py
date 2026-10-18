@@ -37,11 +37,19 @@ def g_polinomica_doble(x):
 
 #Exponencial : f(x) = e^(-x) - x
 def funcion_exponencial(x):
-    return math.exp(-x) - x
+    return np.exp(-x) - x
 
 #Derivada funcion Exponencial
 def Dfuncion_exponencial(x):
-    return -math.exp(-x) - 1
+    return -np.exp(-x) - 1
+
+#Derivada 2 funcion Exponencial
+def D2funcion_exponencial(x):
+    return np.exp(-x)
+
+#funcion G Exponencial
+def g_exponencial(x):
+    return np.exp(-x)
 
 #trigonometrica : f(x) = cos(x) - x
 def f_trigonometrica(x):
@@ -51,6 +59,14 @@ def f_trigonometrica(x):
 def df_trigonometrica(x):
     return -np.sin(x) - 1.0
 
+#Derivada 2 funcion Trigonometrica
+def D2f_trigonometrica(x):
+    return -np.cos(x)
+
+#Funcion G Trigonometrica
+def g_trigonometrica(x):
+    return np.cos(x)
+
 #funcion mixta : f(x) = sqrt(x) - cos(x)
 def f_mixta(x):
     return np.sqrt(x) - np.cos(x)
@@ -58,3 +74,11 @@ def f_mixta(x):
 #derivada funcion mixta
 def df_mixta(x):
     return 1.0 / (2.0 * np.sqrt(x)) + np.sin(x)
+
+#derivada 2 funcion mixta
+def d2f_mixta(x):
+    return -1.0 / (4.0 * (x ** 1.5)) + np.cos(x)
+
+#Funcion G mixta
+def g_mixta(x):
+    return np.cos(x) ** 2
