@@ -11,17 +11,25 @@ def newton_raphson_modificado(f, df, ddf, x0, tol, max_iter ):
     x = x0
     for i in range(max_iter):
 
+<<<<<<< HEAD
         if x < 0:
             print(f"Error: El valor de x ({x}) salió del dominio válido (x < 0).")
             return None, None, None
+=======
+
+>>>>>>> main
         #print(f"\nIteracion {i + 1}: x = {x}, f(x) = {f(x)}")
 
         fx = f(x)
         if abs(fx) < tol:
             lista_iteraciones.append(i + 1)
             lista_raices.append(round(x, 6))
+<<<<<<< HEAD
             lista_Fx.append(round(f(x), 6))
 
+=======
+            lista_Fx.append(round(fx, 6))
+>>>>>>> main
             return lista_raices, lista_iteraciones , lista_Fx
 
         dfx = df(x)

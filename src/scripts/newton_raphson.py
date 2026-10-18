@@ -11,12 +11,15 @@ def newton_raphson(f, df, x0, tol, max_iter):
     x = x0
     for i in range(max_iter):
 
+<<<<<<< HEAD
         if x < 0:
             print(f"Error: El valor de x ({x}) salió del dominio válido (x < 0).")
             return None, None, None
 
 
 
+=======
+>>>>>>> main
 
         fx = f(x)
         if abs(fx) < tol:
@@ -31,12 +34,19 @@ def newton_raphson(f, df, x0, tol, max_iter):
             return None, None, None
 
         x_nuevo = x - (fx / dfx)
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> main
         lista_iteraciones.append(i + 1)
         lista_raices.append(round(x_nuevo, 6))
         lista_Fx.append(round(f(x_nuevo), 6))
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
         if abs(x_nuevo - x) < tol:
             return lista_raices, lista_iteraciones , lista_Fx
         x = x_nuevo
