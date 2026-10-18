@@ -1,5 +1,5 @@
 # Trabajo de Computacion numerica 
-# Autores : Ricardo Yañez Vega, Jose Guerrero
+# Autores : Ricardo Yañez Vega, José Guerrero
 
 # Importamos modulo estandar "math"
 import math
