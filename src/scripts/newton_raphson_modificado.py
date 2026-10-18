@@ -14,6 +14,7 @@ def newton_raphson_modificado(f, df, ddf, x0, tol, max_iter ):
         lista_iteraciones.append(i + 1)
         lista_raices.append(round(x, 6))
         lista_Fx.append(round(f(x), 6))
+        print(f"\nIteracion {i + 1}: x = {x}, f(x) = {f(x)}")
 
         fx = f(x)
         if abs(fx) < tol:

@@ -11,7 +11,8 @@ from pathlib import Path
 #Las funciones a probar estan en el archivo funciones.py
 
 from funciones import funcion_polinomica, Dfuncion_polinomica , D2funcion_polinomica , g_polinomica_simple
-from funciones import raiz_doble, Dfuncion_raiz_doble, funcion_exponencial, Dfuncion_exponencial, f_trigonometrica, df_trigonometrica, f_mixta, df_mixta
+from funciones import raiz_doble, Dfuncion_raiz_doble , D2funcion_raiz_doble, g_polinomica_doble
+from funciones import funcion_exponencial, Dfuncion_exponencial, f_trigonometrica, df_trigonometrica, f_mixta, df_mixta
 
 
 #Metodos de busqueda raices estan en el archivo
@@ -69,6 +70,8 @@ def FUNCION_POLINOMICA_RAIZ_SIMPLE():
 
     funcion_archivo_csv(lista_raiz_punto_fijo, lista_Fx_punto_fijo, lista_iteracion_punto_fijo, "1-3funcion_poli_raiz_simple_punto_fijo.csv")
 
+
+
     print("\nMetodo de la secante con la funcion polinomica (raiz simple) ")
     print("\nComo se utiliza dos puntos de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 y (el mayor numero del intervalo) x1 = 2 ")
     lista_raiz_secante, lista_iteracion_secante, lista_Fx_secante = secante(funcion_polinomica , x0 = 1 , x1 = 2 , tol = TOLERANCIA , max_iter = iteraciones)
@@ -92,13 +95,42 @@ def FUNCION_POLINOMICA_RAIZ_SIMPLE():
 def FUNCION_POLINOMICA_RAIZ_DOBLE():
     print("\nMetodo de la biseccion con la funcion polinomica (raiz doble) ")
     lista_raiz_biseccion, lista_iteracion_biseccion , lista_Fx_biseccion = bisecccion(raiz_doble , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
-
     print("\nComo no cumple el teroema de Bolzano, no se puede aplicar el metodo de biseccion")
 
     print("\nMetodo de la falsa posicion con la funcion polinomica (raiz doble) ")
     lista_raiz_falsa_posicion, lista_iteracion_falsa_posicion , lista_Fx_falsa_posicion = falsa_posicion(raiz_doble , intervaloA = 1 , intervaloB = 2 , tol = TOLERANCIA , max_iter = iteraciones)
-
     print("\nComo no cumple el teroema de Bolzano, no se puede aplicar el metodo de biseccion")
+
+
+    print("\nMetodo punto fijo con la funcion polinomica (raiz doble) ")
+    print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 ")
+    print("\nLa funcion g(x) utilizada sera g(x) = 1 + ((x^2) / 4)")
+    lista_raiz_punto_fijo, lista_iteracion_punto_fijo, lista_Fx_punto_fijo = punto_fijo(g_polinomica_doble , x0 = 1 , tol = TOLERANCIA , max_iter = iteraciones)
+
+    funcion_archivo_csv(lista_raiz_punto_fijo, lista_Fx_punto_fijo, lista_iteracion_punto_fijo, "2-3funcion_poli_raiz_doble_punto_fijo.csv")
+
+    print("\nMetodo de la secante con la funcion polinomica (raiz doble)")
+    print("\nComo se utiliza dos puntos de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 y (el mayor numero del intervalo) x1 = 2 ")
+    lista_raiz_secante, lista_iteracion_secante, lista_Fx_secante = secante(g_polinomica_doble , x0 = 1 , x1 = 2 , tol = TOLERANCIA , max_iter = iteraciones)
+
+    funcion_archivo_csv(lista_raiz_secante, lista_Fx_secante, lista_iteracion_secante, "2-4funcion_poli_raiz_doble_secante.csv")
+
+
+    print(f"\nMetodo de newton-raphson con la funcion polinomica (raiz doble) ")
+    print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 ")
+    lista_raices_newton_raphson, lista_iteraciones_newton_raphson, lista_Fx_newton_raphson = newton_raphson(raiz_doble , Dfuncion_raiz_doble , x0 = 1 , tol = TOLERANCIA , max_iter = iteraciones)
+
+    funcion_archivo_csv(lista_raices_newton_raphson, lista_Fx_newton_raphson, lista_iteraciones_newton_raphson, "2-5funcion_poli_raiz_doble_newton_raphson.csv")
+
+
+    print(f"\nMetodo de newton-raphson modificado con la funcion polinomica (raiz doble) ")
+    print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 ")
+    lista_raices_newton_raphson_modificado, lista_iteraciones_newton_raphson_modificado, lista_Fx_newton_raphson_modificado = newton_raphson_modificado(raiz_doble , Dfuncion_raiz_doble , D2funcion_raiz_doble , x0 = 1 , tol = TOLERANCIA , max_iter = iteraciones)
+
+    funcion_archivo_csv(lista_raices_newton_raphson_modificado, lista_Fx_newton_raphson_modificado, lista_iteraciones_newton_raphson_modificado, "2-6funcion_poli_raiz_doble_newton_raphson_modificado.csv")
+
+
+
 
 
 
@@ -121,9 +153,12 @@ if __name__ == "__main__":
 
     #FUNCION_POLINOMICA_RAIZ_DOBLE()
 
-    print("\nMetodo punto fijo con la funcion polinomica (raiz doble) ")
-    print("\nComo se utiliza un punto de partida a diferencia de los metodos anteriores, se utilizara (el menor numero del intervalo) x0 = 1 ")
-    
+    print("\nFUNCION EXPONENCIAL ")
+
+    #FUNCION_EXPONENCIAL()
+
+    print(f"\nMetodo de biseccion con la funcion exponencial ")
+    lista_raiz_biseccion, lista_iteracion_biseccion , lista_Fx_biseccion = bisecccion(funcion_exponencial , intervaloA = 0 , intervaloB = 1 , tol = TOLERANCIA , max_iter = iteraciones)
 
 
 
