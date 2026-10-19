@@ -68,7 +68,7 @@ def GRAFICAR(lista_completa, titulo, nombre_archivo_png="grafico.png"):
 
 
     #Dibujamos las funciones
-    plt.plot(lista_completa[0] , color= "r" , label='Biseccion')
+    plt.plot(lista_completa[0] , color = "r" , label='Biseccion')
     plt.plot(lista_completa[1] , color = 'g' , label= 'Falsa posicion')
     plt.plot(lista_completa[2] , color = 'b' , label= 'Punto Fijo')
     plt.plot(lista_completa[3] , color = 'c' , label= 'Secante')

@@ -1,0 +1,24 @@
+# Importamos modulo estandar "math"
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+import csv
+from pathlib import Path
+
+#Las funciones a probar estan en el archivo funciones.py
+
+from funciones import funcion_polinomica, Dfuncion_polinomica , D2funcion_polinomica , g_polinomica_simple
+from funciones import raiz_doble, Dfuncion_raiz_doble , D2funcion_raiz_doble, g_polinomica_doble
+from funciones import funcion_exponencial, Dfuncion_exponencial , D2funcion_exponencial , g_exponencial
+from funciones import f_trigonometrica, df_trigonometrica, D2f_trigonometrica , g_trigonometrica
+from funciones import f_mixta, df_mixta , d2f_mixta , g_mixta
+
+#Metodos de busqueda raices estan en el archivo
+#biseccion.py, falsa_posicion.py, punto_fijo.py, secante.py, newton_raphson.py , newton_raphson_modificado.py
+
+from biseccion import bisecccion
+from falsa_posicion import falsa_posicion
+from punto_fijo import punto_fijo
+from secante import secante
+from newton_raphson import newton_raphson
+from newton_raphson_modificado import newton_raphson_modificado
