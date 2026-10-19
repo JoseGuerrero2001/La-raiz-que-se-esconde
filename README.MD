@@ -32,35 +32,36 @@ evaluacion2-busqueda-raices/
 El proyecto requiere Python 3.x instalado en el sistema. Las librerías obligatorias utilizadas son numpy y matplotlib
 
 1.Clonar el repositorio
-```
-BASH
 
+BASH
+```
 git clone <url-del-repositorio>
 cd evaluacion2-busqueda-raices
 
 ```
 3.Instalar las dependencias
-```
-BASH
 
+BASH
+```
 pip install -r requirements.txt
 
 ```
 ## ▶️ ¿Cómo ejecutar el proyecto?
 
 1.Dirígete a la carpeta donde se encuentran los scripts de código fuente (src/):
-```
-BASH
 
+BASH
+```
 cd src
-
 ```
+
 2.Ejecuta el archivo principal:
-```
-BASH
 
+BASH
+```
 python 1-Main.py
 ```
+
 Al finalizar la ejecución, el script se encargará automáticamente de:
 * Calcular las raíces para cada método y función bajo el ambiente controlado.
 * Guardar los registros iterativos en la carpeta data/ en formato .csv.
