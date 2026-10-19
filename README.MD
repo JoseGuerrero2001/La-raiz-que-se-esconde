@@ -37,14 +37,12 @@ BASH
 ```
 git clone <url-del-repositorio>
 cd evaluacion2-busqueda-raices
-
 ```
 3.Instalar las dependencias
 
 BASH
 ```
 pip install -r requirements.txt
-
 ```
 ## ▶️ ¿Cómo ejecutar el proyecto?
 
